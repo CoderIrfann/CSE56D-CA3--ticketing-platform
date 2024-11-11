@@ -11,108 +11,141 @@ $stmt = $pdo->query("SELECT * FROM events");
     <title>Online Ticketing Platform</title>
     <link rel="stylesheet" href="style.css">
     <style>
-       
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #eaeef1, #ffffff);
-            color: #333;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+    :root {
+        --primary-color: #3498db;
+        --secondary-color: #2c3e50;
+        --background-color: #f5f7fa;
+        --card-background: #ffffff;
+        --header-gradient: linear-gradient(to right, #4a69bd, #6a89cc);
+        --button-hover: #2980b9;
+        --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+        font-family: 'Roboto', Arial, sans-serif;
+        background-color: var(--background-color);
+        color: #333;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    header {
+        background: var(--header-gradient);
+        padding: 20px 0;
+        color: #fff;
+        text-align: center;
+        font-size: 2em;
+        font-weight: bold;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    main {
+        width: 100%;
+        padding: 60px 20px;
+        flex-grow: 1;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 2.2em;
+        color: var(--secondary-color);
+        margin-bottom: 40px;
+        font-weight: 600;
+    }
+
+    .event-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .event-card {
+        background: var(--card-background);
+        border-radius: 12px;
+        box-shadow: var(--card-shadow);
+        padding: 30px;
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .event-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .event-card h3 {
+        color: var(--primary-color);
+        font-size: 1.8em;
+        font-weight: 600;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .event-card p {
+        color: #555;
+        font-size: 1.1em;
+        margin: 5px 0;
+        text-align: center;
+    }
+
+    .event-card a {
+        color: #fff;
+        background-color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 600;
+        padding: 12px 25px;
+        border-radius: 5px;
+        margin-top: 10px;
+        transition: background-color 0.3s ease;
+    }
+
+    .event-card a:hover {
+        background-color: var(--button-hover);
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px;
+        background-color: var(--secondary-color);
+        color: #fff;
+        font-size: 1em;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
         header {
-            background-color: #2980b9;
-            padding: 15px 20px;
-            color: #fff;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            padding: 15px 10px;
         }
-        header h1 {
-            font-size: 2em;
-        }
-        nav a {
-            color: #ffffff;
-            margin-left: 15px;
-            text-decoration: none;
-            font-size: 1.1em;
-        }
-        nav a:hover {
-            color: #d1e9ff;
-            transition: color 0.3s;
-        }
+        
         main {
-            padding: 20px;
-            max-width: 1200px;
-            margin: 20px auto;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+            padding: 30px 10px;
         }
+        
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 30px;
+        }
+
         .event-card {
-            background: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            margin: 15px;
             padding: 20px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            flex-basis: calc(30% - 30px);
-            position: relative;
-            overflow: hidden;
         }
-        .event-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-        }
-        .event-card h3 {
-            margin: 0 0 10px;
-            color: #2980b9;
-        }
-        .event-card p {
-            margin: 5px 0;
-            color: #555;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #2980b9;
-            color: #fff;
-            margin-top: auto;
-        }
-        @media (max-width: 768px) {
-            .event-card {
-                flex-basis: calc(45% - 30px);
-            }
-        }
-        @media (max-width: 480px) {
-            .event-card {
-                flex-basis: calc(100% - 30px);
-            }
-            header h1 {
-                font-size: 1.5em;
-            }
-            nav a {
-                font-size: 0.9em;
-                margin-left: 10px;
-            }
-        }
-    </style>
+    }
+</style>
+
 </head>
 <body>
     <header>
-        <h1>Online Ticketing Platform</h1>
-        <nav>
-            <a href="index.php">Home</a>
-            <?php if (isset($_SESSION['username'])): ?>
-                <a href="profile.php">Profile</a>
-                <a href="logout.php">Logout</a>
-            <?php else: ?>
-                <a href="signin.php">Sign In</a>
-                <a href="signup.php">Sign Up</a>
-            <?php endif; ?>
-        </nav>
+        Online Ticketing Platform
     </header>
 
     <main>
@@ -123,8 +156,7 @@ $stmt = $pdo->query("SELECT * FROM events");
                     <h3><?= htmlspecialchars($row['name']) ?></h3>
                     <p>Date: <?= htmlspecialchars($row['date']) ?></p>
                     <p>Location: <?= htmlspecialchars($row['location']) ?></p>
-                    <p>Description: <?= htmlspecialchars($row['details']) ?></p> <!-- Update 'description' to a valid column -->
-                    <a href="event.php?id=<?= $row['event_id'] ?>" style="color: #2980b9; text-decoration: none; font-weight: bold;">View Details</a>
+                    <a href="event.php?id=<?= $row['event_id'] ?>">View Details</a>
                 </div>
             <?php endwhile; ?>
         </div>
