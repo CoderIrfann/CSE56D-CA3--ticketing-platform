@@ -1,0 +1,116 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+}
+
+header {
+    background-color: #2980b9;
+    padding: 15px 20px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 1.8em;
+}
+
+nav a {
+    color: #ffffff;
+    margin-left: 15px;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+nav a:hover {
+    color: #d1e9ff;
+}
+
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 2em;
+    color: #2c3e50;
+}
+
+ul.event-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.event-list li {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.event-list li a {
+    color: #2980b9;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.profile h2, .profile p, .profile ul {
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1em;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #3498db;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #2980b9;
+    color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    nav a {
+        font-size: 1em;
+        margin-left: 10px;
+    }
+}
